@@ -15,12 +15,13 @@ class TestAddGroup(unittest.TestCase):
         self.open_home_page(wd)
         self.login(wd, "admin", "secret")
         self.create_contact(wd, Contact(firstname="fname vfrr", middlename="mname fsdf", lastname="lname sdf",
-                            nickname="nname sd", title="titledfs", company="companysdfsf",
-                            address="addresshk kjksdf jkjkf kjfkasjf kk353kh", home="43544565", mobile="45678",
-                            work="45688", fax="46578", email="email1afsfds", email2="email2asfas", email3="email3dfdaf",
-                            homepage="homepagezddfsfsf", bday="4", bmonth="April", byear="1950",
-                            aday="2", amonth="August", ayear="2000", address2="secaddress dsfdsfasf",
-                            phone2="sechome dfsdgf", notes="secnotes sdfjskf skjfkasfj iajsfksddjfkasf kfjsd kfasjf"))
+                                        nickname="nname sd", title="titledfs", company="companysdfsf",
+                                        address="addresshk kjksdf jkjkf kjfkasjf kk353kh", homephone="43544565",
+                                        mobilephone="45678", workphone="45688", fax="46578", email="email1afsfds",
+                                        email2="email2asfas", email3="email3dfdaf", homepage="homepagezddfsfsf",
+                                        bday="4", bmonth="April", byear="1950", aday="2", amonth="August", ayear="2000",
+                                        address2="secaddress dsfdsfasf", phone2="sechome dfsdgf",
+                                        notes="secnotes sdfjskf skjfkasfj iajsfksddjfkasf kfjsd kfasjf"))
         self.return_to_home_page(wd)
         self.logout(wd)
 
@@ -57,13 +58,13 @@ class TestAddGroup(unittest.TestCase):
         wd.find_element_by_name("address").send_keys(contact.address)
         wd.find_element_by_name("home").click()
         wd.find_element_by_name("home").clear()
-        wd.find_element_by_name("home").send_keys(contact.home)
+        wd.find_element_by_name("home").send_keys(contact.homephone)
         wd.find_element_by_name("mobile").click()
         wd.find_element_by_name("mobile").clear()
-        wd.find_element_by_name("mobile").send_keys(contact.mobile)
+        wd.find_element_by_name("mobile").send_keys(contact.mobilephone)
         wd.find_element_by_name("work").click()
         wd.find_element_by_name("work").clear()
-        wd.find_element_by_name("work").send_keys(contact.work)
+        wd.find_element_by_name("work").send_keys(contact.workphone)
         wd.find_element_by_name("fax").click()
         wd.find_element_by_name("fax").clear()
         wd.find_element_by_name("fax").send_keys(contact.fax)
