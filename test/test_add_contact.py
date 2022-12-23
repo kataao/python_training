@@ -2,7 +2,7 @@
 from selenium.webdriver.firefox.webdriver import WebDriver
 from selenium.webdriver.support.ui import Select
 import unittest
-from contact import Contact
+from model.contact import Contact
 
 
 class TestAddGroup(unittest.TestCase):
