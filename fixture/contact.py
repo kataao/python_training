@@ -115,11 +115,11 @@ class ContactHelper:
             wd.find_element_by_name(field_name).clear()
             wd.find_element_by_name(field_name).send_keys(text)
 
-    def change_select_value(self, field_name, text):
+    def change_select_value(self, field_name, value):
         wd = self.app.wd
-        if text is not None:
+        if value is not None:
             wd.find_element_by_name(field_name).click()
-            Select(wd.find_element_by_name(field_name)).select_by_visible_text(text)
+            Select(wd.find_element_by_name(field_name)).select_by_value(value)
 
     def count(self):
         wd = self.app.wd
@@ -187,3 +187,21 @@ class ContactHelper:
         mobilephone = re.search("M: (.*)", text).group(1)
         secondaryphone = re.search("P: (.*)", text).group(1)
         return Contact(homephone=homephone, workphone=workphone, mobilephone=mobilephone, secondaryphone=secondaryphone)
+
+    def add_contact_to_group(self, contact, group):
+        wd = self.app.wd
+        self.open_home_page()
+        self.select_contact_by_id(contact.id)
+        self.change_select_value("to_group", group.id)
+        wd.find_element_by_name("add").click()
+        self.open_home_page()
+        self.contact_cache = None
+
+    def remove_contact_from_group(self, contact, group):
+        wd = self.app.wd
+        self.open_home_page()
+        self.change_select_value("group", group.id)
+        self.select_contact_by_id(contact.id)
+        wd.find_element_by_name("remove").click()
+        self.open_home_page()
+        self.contact_cache = None
