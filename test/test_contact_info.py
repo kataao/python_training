@@ -1,6 +1,4 @@
 import re
-from random import randrange
-
 from model.contact import Contact
 
 
@@ -16,8 +14,8 @@ def test_contact_info_on_home_page(app, db):
                                    address="irjfri 12!^:kjff kjekdj", homephone="+435-44-565", mobilephone="(456)78",
                                    workphone="45688", fax="46578", email="email1-s_fds@test.test", email3="ema.il3daf",
                                    address2="secaddress dsfdsfasf", secondaryphone="sechome dfsdgf"))
-    contacts_from_home_page = app.contact.get_contact_list()
-    contacts_from_db = db.get_contact_list()
+    contacts_from_home_page = sorted(app.contact.get_contact_list(), key=Contact.id_or_max)
+    contacts_from_db = sorted(db.get_contact_list(), key=Contact.id_or_max)
     for i in range(len(contacts_from_db)):
         assert contacts_from_home_page[i].lastname == contacts_from_db[i].lastname
         assert contacts_from_home_page[i].firstname == contacts_from_db[i].firstname
