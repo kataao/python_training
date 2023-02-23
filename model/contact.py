@@ -47,3 +47,55 @@ class Contact:
             return int(self.id)
         else:
             return maxsize
+
+    def update(self, other):
+        if other.firstname is not None:
+            self.firstname = other.firstname
+        if other.middlename is not None:
+            self.middlename = other.middlename
+        if other.lastname is not None:
+            self.lastname = other.lastname
+        if other.nickname is not None:
+            self.nickname = other.nickname
+        if other.title is not None:
+            self.title = other.title
+        if other.company is not None:
+            self.company = other.company
+        if other.address is not None:
+            self.address = other.address
+        if other.homephone is not None:
+            self.homephone = other.homephone
+        if other.mobilephone is not None:
+            self.mobilephone = other.mobilephone
+        if other.workphone is not None:
+            self.workphone = other.workphone
+        if other.fax is not None:
+            self.fax = other.fax
+        if other.email is not None:
+            self.email = other.email
+        if other.email2 is not None:
+            self.email2 = other.email2
+        if other.email3 is not None:
+            self.email3 = other.email3
+        if other.homepage is not None:
+            self.homepage = other.homepage
+        if other.bday is not None:
+            self.bday = other.bday
+        if other.bmonth is not None:
+            self.bmonth = other.bmonth
+        if other.byear is not None:
+            self.byear = other.byear
+        if other.aday is not None:
+            self.aday = other.aday
+        if other.amonth is not None:
+            self.amonth = other.amonth
+        if other.ayear is not None:
+            self.ayear = other.ayear
+        if other.address2 is not None:
+            self.address2 = other.address2
+        if other.secondaryphone is not None:
+            self.secondaryphone = other.secondaryphone
+        if other.notes is not None:
+            self.notes = other.notes
+        if other.id is not None:
+            self.id = other.id
